@@ -1,7 +1,37 @@
 header {
   display: flex;
-  padding: 1rem 1rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
 
-  color: whitesmoke;
-  background-color: rgb(78, 82, 82);
+  color: rgb(41, 41, 41);
+  background-color: whitesmoke;
+
+  box-shadow: 0 2px 5px rgb(151, 151, 151);
+}
+
+header a,
+header li {
+  color: inherit;
+  text-decoration: none;
+  list-style: none;
+}
+
+header ul {
+  display: flex;
+  gap: 1rem;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+header .logo i {
+  font-size: 1.5rem;
+}
+
+header .logo span {
+  color: rgb(1, 156, 143);
 }

@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <main>
       <div className="title">
-        <h1>Why didn't the skeleton go to the dance?</h1>
+        <h1>Why didn&apos;t the skeleton go to the dance?</h1>
         <h2>Because he had no body to go with :(</h2>
       </div>
       <h4>Your wonky legs getting you down? </h4>

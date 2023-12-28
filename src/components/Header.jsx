@@ -17,12 +17,12 @@ const Header = () => {
         </div>
       </Link>
       <ul>
-        <li>
-          <Link to={"/products"}>Shop</Link>
-        </li>
-        <li>
-          <Link to={"/cart"}>{<FaShoppingCart />}</Link>
-        </li>
+        <Link to={"/products"}>
+          <li>Shop</li>
+        </Link>
+        <Link to={"/cart"}>
+          <li>{<FaShoppingCart />}</li>
+        </Link>
       </ul>
     </header>
   );

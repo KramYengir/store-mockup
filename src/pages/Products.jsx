@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import "../styles/products.css";
 
 const Products = ({ category }) => {
@@ -7,6 +7,14 @@ const Products = ({ category }) => {
       <div>{category}</div>
     </div>
   );
+};
+
+Products.defaultProps = {
+  category: "featured",
+};
+
+Products.propTypes = {
+  category: PropTypes.string,
 };
 
 export default Products;

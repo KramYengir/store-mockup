@@ -7,7 +7,7 @@ header {
   color: rgb(41, 41, 41);
   background-color: whitesmoke;
 
-  box-shadow: 0 2px 5px rgb(151, 151, 151);
+  box-shadow: 0 2px 5px rgba(151, 151, 151, 0.3);
 }
 
 header a,

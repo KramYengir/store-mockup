@@ -1,5 +1,7 @@
+import "../styles/products.css";
+
 const Products = () => {
-  return <div>Products</div>;
+  return <div className="products-container">Products</div>;
 };
 
 export default Products;

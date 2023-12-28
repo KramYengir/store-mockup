@@ -19,5 +19,32 @@
 }
 
 .products-display {
-  padding: 1rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 1rem 3rem;
+}
+
+.products-display .product-card {
+  display: grid;
+  gap: 0.5rem;
+
+  padding: 0.5rem;
+  margin-inline: auto;
+}
+
+.products-display .product-card .product-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-card img {
+  width: 200px;
+  height: 200px;
+}
+
+.product-card .product-footer input {
+  max-width: 40px;
+  padding: 5px;
 }

@@ -1,9 +1,11 @@
+import "../styles/products.css";
 import { Link, Outlet } from "react-router-dom";
 
 const ProductsLayout = () => {
   return (
     <div className="products-container">
       <nav className="products-navbar">
+        <Link to={"."}>Featured</Link>
         <Link to={"arms"}>Arms</Link>
         <Link to={"legs"}>Legs</Link>
         <Link to={"misc"}>misc</Link>

@@ -1,3 +1,23 @@
-.products-container {
+.products-container nav {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(1, 156, 143);
+}
+
+.products-container nav a {
+  padding: 0.5rem 1rem;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.products-container nav a:hover,
+.products-container nav a:focus,
+.products-container nav a.active {
+  color: rgb(1, 156, 143);
+  background-color: whitesmoke;
+}
+
+.products-display {
   padding: 1rem 2rem;
 }

@@ -41,7 +41,7 @@ header .logo {
 }
 
 header .logo:hover {
-  transform: scale(0.96);
+  transform: scale(0.98);
 }
 
 header .logo i {

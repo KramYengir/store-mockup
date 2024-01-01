@@ -3,33 +3,36 @@ import "../styles/products.css";
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 
+const BASE_API_URL = "https://api.escuelajs.co/api/v1/products";
+
 const Products = ({ category }) => {
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch("../public/data.json");
-        const data = await response.json();
-        setProducts(data.products);
-        //console.table(data.products);
-      } catch (error) {
-        console.error("Error fetching product data:", error);
-      }
-    };
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch(BASE_API_URL);
+      const data = await response.json();
+      setProducts(data);
+    } catch (error) {
+      console.error("Error fetching product data:", error);
+    }
+  };
 
+  useEffect(() => {
     fetchProducts();
   }, []);
 
   const getRandomProducts = (count) => {
-    const shuffledProducts = products.sort(() => Math.random() - 0.5);
+    const shuffledProducts = [...products].sort(() => Math.random() - 0.5);
     return shuffledProducts.slice(0, count);
   };
 
   const displayProducts =
     category === "featured"
       ? getRandomProducts(3)
-      : products.filter((product) => product.category === category);
+      : products.filter(
+          (product) => product.category && product.category.name === category
+        );
 
   return (
     <div className="products-display">
@@ -40,7 +43,8 @@ const Products = ({ category }) => {
           title={product.title}
           description={product.description}
           price={product.price}
-          category={product.category}
+          category={product.category && product.category.name}
+          img={product.images && product.images[0]}
         />
       ))}
     </div>

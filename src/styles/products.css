@@ -5,7 +5,7 @@
 }
 
 .products-container nav a {
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
   color: white;
   text-decoration: none;
   text-transform: uppercase;
@@ -20,31 +20,67 @@
 
 .products-display {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   justify-content: center;
   gap: 2.5rem;
-  padding: 1rem 3rem;
+  padding: 1rem 5rem;
+  margin-top: 50px;
 }
 
 .products-display .product-card {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   gap: 0.5rem;
 
   padding: 0.5rem;
-  margin-inline: auto;
+
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0px 5px 1px rgba(128, 128, 128, 0.342);
+}
+
+.products-display .product-card:hover,
+.products-display .product-card:focus {
+  transform: scale(1.025);
+}
+
+.products-display .product-card .top-side {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+
+  text-decoration: none;
+  text-align: center;
+  color: inherit;
+}
+
+.product-card img {
+  max-width: 40%;
 }
 
 .products-display .product-card .product-footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
 }
 
-.product-card img {
-  width: 200px;
-  height: 200px;
+.product-card .product-footer h3 {
+  font-size: 1.8rem;
 }
 
-.product-card .product-footer input {
-  max-width: 40px;
-  padding: 5px;
+.product-card .product-footer button {
+  padding: 15px;
+
+  border: none;
+  border-radius: 5px;
+
+  font-weight: 700;
+  text-transform: uppercase;
+
+  color: whitesmoke;
+  background-color: rgba(1, 156, 143, 0.986);
+
+  cursor: pointer;
 }

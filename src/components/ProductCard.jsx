@@ -1,17 +1,20 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ id, title, description, price, category, img }) => {
+const ProductCard = ({ id, title, price, category, img }) => {
   return (
     <div className="product-card">
-      <Link to={`/products/${category}/${id}`}>
+      <Link
+        className="top-side"
+        to={`/products/${category.replace(/'/g, "")}/${id}`}
+      >
         <img src={img} alt={title} />
+        <h4>{title}</h4>
       </Link>
-      <h1>{title}</h1>
-      <div className="product-description">{description}</div>
+      {/* <div className="product-description">{description}</div> */}
       <div className="product-footer">
-        <h2>£{price}</h2>
-        <input type="text" placeholder="0" />
+        <h3>£{price}</h3>
+        <button>Add To Cart</button>
       </div>
     </div>
   );
@@ -24,7 +27,6 @@ const ProductCard = ({ id, title, description, price, category, img }) => {
 ProductCard.propTypes = {
   id: PropTypes.number,
   title: PropTypes.string,
-  description: PropTypes.string,
   price: PropTypes.number,
   category: PropTypes.string,
   img: PropTypes.string,

@@ -8,8 +8,8 @@ const ProductsLayout = () => {
         <Link to={"."}>Featured</Link>
         <Link to={"electronics"}>Electronics</Link>
         <Link to={"jewelery"}>Jewelery</Link>
-        <Link to={"mens-clothing"}>Men&apos;s Clothing</Link>
-        <Link to={"womens-clothing"}>Women&apos;s Clothing</Link>
+        <Link to={"mens clothing"}>Men&apos;s Clothing</Link>
+        <Link to={"womens clothing"}>Women&apos;s Clothing</Link>
       </nav>
       <Outlet />
     </div>

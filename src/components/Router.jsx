@@ -39,15 +39,15 @@ const Router = () => {
               />
               <Route path="jewelery/:id" element={<ProductPage />} />
               <Route
-                path="mens-clothing"
+                path="mens clothing"
                 element={<Products category="men's clothing" />}
               />
-              <Route path="mens-clothing/:id" element={<ProductPage />} />
+              <Route path="mens clothing/:id" element={<ProductPage />} />
               <Route
-                path="womens-clothing"
+                path="womens clothing"
                 element={<Products category="women's clothing" />}
               />
-              <Route path="womens-clothing/:id" element={<ProductPage />} />
+              <Route path="womens clothing/:id" element={<ProductPage />} />
             </Route>
             <Route path="cart" element={<Cart />} />
           </Route>

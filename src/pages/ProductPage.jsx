@@ -33,8 +33,11 @@ const ProductPage = () => {
 
         <div className="product-footer">
           <h3>£{product.price}</h3>
-          <input type="number" />
-          <button>Add To Cart</button>
+          <div className="cart-input">
+            <button>-</button>
+            <input type="number" />
+            <button>+</button>
+          </div>
         </div>
       </div>
     </div>

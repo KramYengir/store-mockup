@@ -28,25 +28,26 @@ const Router = () => {
             <Route index element={<Home />} />
             <Route path="products" element={<ProductsLayout />}>
               <Route index element={<Products category={"featured"} />} />
-              <Route path="clothes" element={<Products category="Clothes" />} />
-              <Route path="clothes/:id" element={<ProductPage />} />
               <Route
                 path="electronics"
-                element={<Products category="Electronics" />}
+                element={<Products category="electronics" />}
               />
               <Route path="electronics/:id" element={<ProductPage />} />
               <Route
-                path="furniture"
-                element={<Products category="Furniture" />}
+                path="jewelery"
+                element={<Products category="jewelery" />}
               />
-              <Route path="furniture/:id" element={<ProductPage />} />
-              <Route path="shoes" element={<Products category="Shoes" />} />
-              <Route path="shoes/:id" element={<ProductPage />} />
+              <Route path="jewelery/:id" element={<ProductPage />} />
               <Route
-                path="misc"
-                element={<Products category="Miscellaneous" />}
+                path="mens-clothing"
+                element={<Products category="men's clothing" />}
               />
-              <Route path="misc/:id" element={<ProductPage />} />
+              <Route path="mens-clothing/:id" element={<ProductPage />} />
+              <Route
+                path="womens-clothing"
+                element={<Products category="women's clothing" />}
+              />
+              <Route path="womens-clothing/:id" element={<ProductPage />} />
             </Route>
             <Route path="cart" element={<Cart />} />
           </Route>

@@ -6,11 +6,10 @@ const ProductsLayout = () => {
     <div className="products-container">
       <nav className="products-navbar">
         <Link to={"."}>Featured</Link>
-        <Link to={"clothes"}>Clothes</Link>
         <Link to={"electronics"}>Electronics</Link>
-        <Link to={"furniture"}>Furniture</Link>
-        <Link to={"shoes"}>Shoes</Link>
-        <Link to={"misc"}>misc</Link>
+        <Link to={"jewelery"}>Jewelery</Link>
+        <Link to={"mens-clothing"}>Men&apos;s Clothing</Link>
+        <Link to={"womens-clothing"}>Women&apos;s Clothing</Link>
       </nav>
       <Outlet />
     </div>

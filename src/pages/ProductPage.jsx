@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/productPage.css";
 
-const BASE_API_URL = "https://api.escuelajs.co/api/v1/products";
+const BASE_API_URL = "https://fakestoreapi.com/products";
 
 const ProductPage = () => {
   const [product, setProduct] = useState([]);
@@ -14,7 +14,8 @@ const ProductPage = () => {
       try {
         const response = await fetch(BASE_API_URL);
         const data = await response.json();
-        setProduct(data[id]);
+        setProduct(data.find((product) => product.id == id));
+        console.log(id - 1);
       } catch (error) {
         console.error("Error fetching product data:", error);
       }
@@ -25,7 +26,7 @@ const ProductPage = () => {
 
   return (
     <div className="product-page">
-      <img src={product.images && product.images[0]} alt={product.title} />
+      <img src={product.image} alt={product.title} />
       <div className="right-side">
         <h2>{product.title}</h2>
         <p>{product.description}</p>

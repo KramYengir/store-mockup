@@ -3,7 +3,7 @@ import "../styles/products.css";
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 
-const BASE_API_URL = "https://api.escuelajs.co/api/v1/products";
+const BASE_API_URL = "https://fakestoreapi.com/products";
 
 const Products = ({ category }) => {
   const [products, setProducts] = useState([]);
@@ -30,9 +30,7 @@ const Products = ({ category }) => {
   const displayProducts =
     category === "featured"
       ? getRandomProducts(3)
-      : products.filter(
-          (product) => product.category && product.category.name === category
-        );
+      : products.filter((product) => product.category === category);
 
   return (
     <div className="products-display">
@@ -43,8 +41,8 @@ const Products = ({ category }) => {
           title={product.title}
           description={product.description}
           price={product.price}
-          category={product.category && product.category.name}
-          img={product.images && product.images[0]}
+          category={product.category}
+          img={product.image}
         />
       ))}
     </div>

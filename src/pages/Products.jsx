@@ -1,26 +1,11 @@
 import PropTypes from "prop-types";
 import "../styles/products.css";
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import ProductCard from "../components/ProductCard";
-
-const BASE_API_URL = "https://fakestoreapi.com/products";
+import { ProductContext } from "../components/ProductContext";
 
 const Products = ({ category }) => {
-  const [products, setProducts] = useState([]);
-
-  const fetchProducts = async () => {
-    try {
-      const response = await fetch(BASE_API_URL);
-      const data = await response.json();
-      setProducts(data);
-    } catch (error) {
-      console.error("Error fetching product data:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  const { products, loading, error } = useContext(ProductContext);
 
   const getRandomProducts = (count) => {
     const shuffledProducts = [...products].sort(() => Math.random() - 0.5);
@@ -34,17 +19,23 @@ const Products = ({ category }) => {
 
   return (
     <div className="products-display">
-      {displayProducts.map((product) => (
-        <ProductCard
-          key={product.id}
-          id={product.id}
-          title={product.title}
-          description={product.description}
-          price={product.price}
-          category={product.category}
-          img={product.image}
-        />
-      ))}
+      {loading ? (
+        <div>Loading...</div>
+      ) : error ? (
+        <div>Error fetching products...</div>
+      ) : (
+        displayProducts.map((product) => (
+          <ProductCard
+            key={product.id}
+            id={product.id}
+            title={product.title}
+            description={product.description}
+            price={product.price}
+            category={product.category}
+            img={product.image}
+          />
+        ))
+      )}
     </div>
   );
 };

@@ -2,8 +2,12 @@ import "../styles/header.css";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoBodyOutline } from "react-icons/io5";
+import { useContext } from "react";
+import { CartContext } from "./CartContext";
 
 const Header = () => {
+  const { cartItems } = useContext(CartContext);
+
   return (
     <header>
       <Link to={"/"}>
@@ -21,7 +25,10 @@ const Header = () => {
           <li>Shop</li>
         </Link>
         <Link to={"/cart"}>
-          <li>{<FaShoppingCart />}</li>
+          <li>
+            {<FaShoppingCart />}
+            {cartItems && cartItems.length}
+          </li>
         </Link>
       </ul>
     </header>

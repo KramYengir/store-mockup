@@ -1,6 +1,7 @@
 .product-page {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   gap: 2rem;
   margin-top: 50px;
   margin-inline: auto;

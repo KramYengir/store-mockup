@@ -1,45 +1,76 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/productPage.css";
-
-const BASE_API_URL = "https://fakestoreapi.com/products";
+import { ProductContext } from "../components/ProductContext";
+import { CartContext } from "../components/CartContext";
 
 const ProductPage = () => {
-  const [product, setProduct] = useState([]);
-
+  const { products, loading, error } = useContext(ProductContext);
+  const { cartItems, setItemQuantity } = useContext(CartContext);
   const { id } = useParams();
+  const cartItem = cartItems.find((item) => item.id == id);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch(BASE_API_URL);
-        const data = await response.json();
-        setProduct(data.find((product) => product.id == id));
-        console.log(id - 1);
-      } catch (error) {
-        console.error("Error fetching product data:", error);
-      }
-    };
+  const [quantity, setQuantity] = useState(cartItem ? cartItem.quantity : 0);
 
-    fetchProducts();
-  }, []);
+  const displayProduct = products.find((product) => product.id == id);
+
+  const handleIncrement = () => {
+    if (quantity < 10) {
+      setQuantity(quantity + 1);
+    }
+  };
+
+  const handleDecrement = () => {
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const handleQuantityChange = (e) => {
+    let value = parseInt(e.target.value, 10);
+    value = isNaN(value) ? 0 : Math.min(Math.max(value, 0), 10);
+    setQuantity(value);
+  };
+
+  const handleAddToCart = () => {
+    setItemQuantity(id, quantity);
+  };
 
   return (
     <div className="product-page">
-      <img src={product.image} alt={product.title} />
-      <div className="right-side">
-        <h2>{product.title}</h2>
-        <p>{product.description}</p>
+      {loading ? (
+        <div>Loading...</div>
+      ) : error ? (
+        <div>Error fetching products...</div>
+      ) : (
+        <>
+          {" "}
+          <img src={displayProduct.image} alt={displayProduct.title} />
+          <div className="right-side">
+            <h2>{displayProduct.title}</h2>
+            <p>{displayProduct.description}</p>
 
-        <div className="product-footer">
-          <h3>£{product.price}</h3>
-          <div className="cart-input">
-            <button>-</button>
-            <input type="number" />
-            <button>+</button>
+            <div className="product-footer">
+              <h3>£{displayProduct.price}</h3>
+              <div className="cart-input">
+                <div>
+                  <button onClick={handleDecrement}>-</button>
+                  <input
+                    type="number"
+                    id="quantity"
+                    value={quantity}
+                    onChange={handleQuantityChange}
+                    min={0}
+                    max={10}
+                  />
+                  <button onClick={handleIncrement}>+</button>
+                </div>
+                <button onClick={handleAddToCart}>Update Cart</button>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
     </div>
   );
 };

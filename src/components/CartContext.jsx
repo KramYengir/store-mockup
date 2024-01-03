@@ -1,11 +1,9 @@
 import { useState, useContext, createContext } from "react";
-import { ProductContext } from "./ProductContext";
 
 export const CartContext = createContext(null);
 
 export const CartContextProvider = (props) => {
   const [cartItems, setCartItems] = useState([]);
-  const { products } = useContext(ProductContext);
 
   const addToCart = (id) => {
     const cartItem = cartItems.find((item) => item.id === id);
@@ -49,7 +47,23 @@ export const CartContextProvider = (props) => {
     }
   };
 
-  const contextObject = { cartItems, addToCart, removeFromCart };
+  const setItemQuantity = (id, quantity) => {
+    const updatedCart = cartItems.map((item) =>
+      item.id == id ? { ...item, quantity } : item
+    );
+
+    // Remove the item from the cart if the quantity is set to 0
+    const filteredCart = updatedCart.filter((item) => item.quantity > 0);
+
+    setCartItems(filteredCart);
+  };
+
+  const contextObject = {
+    cartItems,
+    addToCart,
+    removeFromCart,
+    setItemQuantity,
+  };
 
   console.log(cartItems);
 

@@ -26,13 +26,13 @@ const ProductPage = () => {
     }
   };
 
-  const handleQuantityChange = (e) => {
-    let value = parseInt(e.target.value, 10);
-    value = isNaN(value) ? 0 : Math.min(Math.max(value, 0), 10);
-    setQuantity(value);
+  const handleQuantityChange = (value) => {
+    let updatedValue = parseInt(value, 10);
+    updatedValue = isNaN(value) ? 0 : Math.min(Math.max(value, 0), 10);
+    setQuantity(updatedValue);
   };
 
-  const handleAddToCart = () => {
+  const handleUpdateCart = () => {
     setItemQuantity(id, quantity);
   };
 
@@ -65,7 +65,7 @@ const ProductPage = () => {
                   />
                   <button onClick={handleIncrement}>+</button>
                 </div>
-                <button onClick={handleAddToCart}>Update Cart</button>
+                <button onClick={handleUpdateCart}>Update Cart</button>
               </div>
             </div>
           </div>

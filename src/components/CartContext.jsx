@@ -48,9 +48,16 @@ export const CartContextProvider = (props) => {
   };
 
   const setItemQuantity = (id, quantity) => {
-    const updatedCart = cartItems.map((item) =>
-      item.id == id ? { ...item, quantity } : item
-    );
+    let updatedCart;
+
+    // check if item is in cart first
+    if (!cartItems.some((item) => item.id == id)) {
+      updatedCart = [...cartItems, { id: id, quantity: quantity }];
+    } else {
+      updatedCart = cartItems.map((item) =>
+        item.id == id ? { ...item, quantity } : item
+      );
+    }
 
     // Remove the item from the cart if the quantity is set to 0
     const filteredCart = updatedCart.filter((item) => item.quantity > 0);

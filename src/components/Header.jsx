@@ -24,10 +24,12 @@ const Header = () => {
         <Link to={"/products"}>
           <li>Shop</li>
         </Link>
-        <Link to={"/cart"}>
+        <Link className="cart" to={"/cart"}>
           <li>
-            {<FaShoppingCart />}
-            {cartItems && cartItems.length}
+            {<FaShoppingCart className="cart-icon" />}
+            {cartItems && (
+              <div className="cart-quantity">{cartItems.length}</div>
+            )}
           </li>
         </Link>
       </ul>

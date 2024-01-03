@@ -6,8 +6,7 @@ import { CartContext } from "./CartContext";
 const ProductCard = ({ id, title, price, category, img }) => {
   const { cartItems, addToCart } = useContext(CartContext);
 
-  const quantityInCart =
-    cartItems.find((item) => item.id === id)?.quantity || 0;
+  const quantityInCart = cartItems.find((item) => item.id == id)?.quantity || 0;
   return (
     <div className="product-card">
       <Link

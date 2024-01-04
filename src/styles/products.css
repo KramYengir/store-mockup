@@ -1,6 +1,7 @@
 .products-container nav {
   display: flex;
   justify-content: center;
+  width: 100vw;
   background-color: rgb(1, 156, 143);
 }
 
@@ -18,13 +19,21 @@
   background-color: whitesmoke;
 }
 
+.products-container h2 {
+  color: rgb(1, 156, 143);
+
+  margin-top: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .products-display {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   justify-content: center;
   gap: 2.5rem;
   padding: 1rem 5rem;
-  margin-top: 50px;
+  margin-block: 1.5rem;
 }
 
 .products-display .product-card {
@@ -37,12 +46,13 @@
 
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 0px 5px 1px rgba(128, 128, 128, 0.342);
+  box-shadow: 0px 0px 10px 5px rgba(119, 119, 119, 0.397);
 }
 
 .products-display .product-card:hover,
 .products-display .product-card:focus {
-  transform: scale(1.025);
+  transform: scale(1.005);
+  box-shadow: 0px 0px 10px 5px rgba(119, 119, 119, 0.726);
 }
 
 .products-display .product-card .top-side {
@@ -83,4 +93,11 @@
   background-color: rgba(1, 156, 143, 0.986);
 
   cursor: pointer;
+}
+
+.product-card button:hover {
+  color: rgb(1, 156, 143);
+  background-color: white;
+  outline: 1px solid rgb(1, 156, 143);
+  box-shadow: 0px 0px 5px 5px rgba(119, 119, 119, 0.192);
 }

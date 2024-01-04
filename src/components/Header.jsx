@@ -16,22 +16,22 @@ const Header = () => {
             <IoBodyOutline />
           </i>
           <h1>
-            Yo<span>Body</span>Shop
+            Yo<span>Fake</span>Shop
           </h1>
         </div>
       </Link>
       <ul>
-        <Link to={"/products"}>
-          <li>Shop</li>
-        </Link>
-        <Link className="cart" to={"/cart"}>
-          <li>
+        <li>
+          <Link to={"/products"}>Shop</Link>
+        </li>
+        <li>
+          <Link className="cart-link" to={"/cart"}>
             {<FaShoppingCart className="cart-icon" />}
             {cartItems && (
               <div className="cart-quantity">{cartItems.length}</div>
             )}
-          </li>
-        </Link>
+          </Link>
+        </li>
       </ul>
     </header>
   );

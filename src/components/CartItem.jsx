@@ -29,6 +29,18 @@ const CartItem = ({ product }) => {
     setQuantity(value);
   };
 
+  const formattedPrice = () => {
+    console.log("Before formatting:", product.price);
+    const priceAsNumber =
+      typeof product.price === "number"
+        ? product.price
+        : parseFloat(product.price);
+    console.log("After parsing:", priceAsNumber);
+    const formatted = Number(priceAsNumber.toFixed(2));
+    console.log("Formatted price:", formatted);
+    return formatted;
+  };
+
   return (
     <div className="cart-item">
       <Link
@@ -44,19 +56,21 @@ const CartItem = ({ product }) => {
           <h4>{product.title}</h4>
         </Link>
         <div className="price-and-input">
-          <h4>£{product.price}</h4>
+          <h4>£{formattedPrice()}</h4>
           <div className="cart-input">
-            <div>
-              <button onClick={handleDecrement}>-</button>
-              <input
-                type="number"
-                value={quantity}
-                onChange={handleQuantityChange}
-                min={0}
-                max={10}
-              />
-              <button onClick={handleIncrement}>+</button>
-            </div>
+            <button className="quantity-btn" onClick={handleDecrement}>
+              -
+            </button>
+            <input
+              type="number"
+              value={quantity}
+              onChange={handleQuantityChange}
+              min={0}
+              max={10}
+            />
+            <button className="quantity-btn" onClick={handleIncrement}>
+              +
+            </button>
           </div>
         </div>
       </div>

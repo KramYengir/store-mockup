@@ -33,7 +33,7 @@ const ProductPage = () => {
   };
 
   const handleUpdateCart = () => {
-    setItemQuantity(id, quantity);
+    setItemQuantity(Number(id), quantity);
   };
 
   return (
@@ -51,10 +51,12 @@ const ProductPage = () => {
             <p>{displayProduct.description}</p>
 
             <div className="product-footer">
-              <h3>£{displayProduct.price}</h3>
+              <h2>£{displayProduct.price}</h2>
               <div className="cart-input">
-                <div>
-                  <button onClick={handleDecrement}>-</button>
+                <div className="quantity-input">
+                  <button className="quantity-btn" onClick={handleDecrement}>
+                    -
+                  </button>
                   <input
                     type="number"
                     id="quantity"
@@ -63,7 +65,9 @@ const ProductPage = () => {
                     min={0}
                     max={10}
                   />
-                  <button onClick={handleIncrement}>+</button>
+                  <button className="quantity-btn" onClick={handleIncrement}>
+                    +
+                  </button>
                 </div>
                 <button onClick={handleUpdateCart}>Update Cart</button>
               </div>

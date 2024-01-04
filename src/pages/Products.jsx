@@ -18,25 +18,28 @@ const Products = ({ category }) => {
       : products.filter((product) => product.category === category);
 
   return (
-    <div className="products-display">
-      {loading ? (
-        <div>Loading...</div>
-      ) : error ? (
-        <div>Error fetching products...</div>
-      ) : (
-        displayProducts.map((product) => (
-          <ProductCard
-            key={product.id}
-            id={product.id}
-            title={product.title}
-            description={product.description}
-            price={product.price}
-            category={product.category}
-            img={product.image}
-          />
-        ))
-      )}
-    </div>
+    <>
+      <h2>{category}</h2>
+      <div className="products-display">
+        {loading ? (
+          <div>Loading...</div>
+        ) : error ? (
+          <div>Error fetching products...</div>
+        ) : (
+          displayProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              id={product.id}
+              title={product.title}
+              description={product.description}
+              price={product.price}
+              category={product.category}
+              img={product.image}
+            />
+          ))
+        )}
+      </div>
+    </>
   );
 };
 

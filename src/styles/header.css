@@ -52,7 +52,7 @@ header .logo span {
   color: rgb(1, 156, 143);
 }
 
-header .cart li {
+header .cart-link {
   position: relative;
 }
 
@@ -62,11 +62,11 @@ header .cart-icon {
 
 header .cart-quantity {
   position: absolute;
-  left: 65%;
-  top: 25%;
+  left: 85%;
+  top: 0;
   font-size: 0.8rem;
   border-radius: 50%;
-  outline: 1px solid whitesmoke;
+  outline: 2px solid whitesmoke;
   padding: 0.04rem 0.2rem;
   color: whitesmoke;
   background-color: black;

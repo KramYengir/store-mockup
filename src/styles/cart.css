@@ -1,14 +1,17 @@
 .cart-page {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2rem;
-  padding: 1rem 2rem;
+  padding: 2rem 2rem;
+  width: min(90vw, 800px);
 }
 
 .cart-page .cart-item {
   display: flex;
   gap: 2rem;
   padding: 0.5rem 1rem;
+  width: min(90vw, 800px);
 
   background-color: #fff;
   border-radius: 10px;
@@ -17,7 +20,7 @@
 
 .cart-page .cart-item:hover,
 .cart-page .cart-item:focus {
-  transform: scale(1.025);
+  transform: scale(1.005);
   box-shadow: 0 0px 5px 1px rgba(128, 128, 128, 0.651);
 }
 
@@ -43,4 +46,60 @@
   display: flex;
   justify-content: flex-end;
   gap: 2rem;
+}
+
+.cart-item .cart-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cart-input input {
+  padding-inline: 0.25rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.cart-page button {
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: rgb(1, 156, 143);
+
+  font-size: 1rem;
+  padding: 0.5rem 0.65rem;
+
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart-page button:hover {
+  color: rgb(1, 156, 143);
+  background-color: white;
+  outline: 1px solid rgb(1, 156, 143);
+  box-shadow: 0px 0px 5px 5px rgba(119, 119, 119, 0.192);
+}
+
+.cart-page .option-btns {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.cart-page .option-btns button:last-child {
+  color: rgb(1, 156, 143);
+  background-color: white;
+  outline: 1px solid rgb(1, 156, 143);
+}
+
+.cart-page .option-btns button:last-child:hover {
+  color: white;
+  background-color: rgb(1, 156, 143);
+  outline: 1px solid rgb(1, 156, 143);
+}
+
+.cart-page .total {
+  align-self: flex-end;
 }

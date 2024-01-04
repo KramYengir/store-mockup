@@ -17,6 +17,11 @@ const Home = () => {
         With YoBodyShop, you can have arms like Stallone or lips like Ghandi! No
         more achey knees or massive ears!
       </p>
+      <p>
+        <strong>DISCLAIMER</strong>: Due to the project requirement of fetching
+        data from an API <em>(and human rights concerns...)</em>, YoBodyShop is
+        now YoFakeShop. Thank you for your custom!
+      </p>
       <button onClick={() => navigate("/products")}>See our Products!</button>
     </main>
   );

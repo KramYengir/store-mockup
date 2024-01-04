@@ -3,6 +3,7 @@ import { CartContext } from "../components/CartContext";
 import { ProductContext } from "../components/ProductContext";
 import { useContext } from "react";
 import CartItem from "../components/CartItem";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { cartItems } = useContext(CartContext);
@@ -17,12 +18,12 @@ const Cart = () => {
       total += product.price * item.quantity;
     });
 
-    return total;
+    return Math.ceil(total * 100) / 100;
   };
 
   // Function to get product details based on ID
   const getProductDetails = (productId) => {
-    return products.find((product) => product.id === productId);
+    return products.find((product) => product.id == productId);
   };
 
   return (
@@ -43,7 +44,15 @@ const Cart = () => {
           Looks like you have an empty cart. Time to get shopping!
         </div>
       )}
-      {cartItems.length > 0 && <h2>Total: £{getTotalPrice()}</h2>}
+
+      <Link to={"/products"} className="option-btns">
+        <button>Continue Shopping</button>
+        <button>Checkout</button>
+      </Link>
+
+      {cartItems.length > 0 && (
+        <h2 className="total">Total: £{getTotalPrice()}</h2>
+      )}
     </div>
   );
 };

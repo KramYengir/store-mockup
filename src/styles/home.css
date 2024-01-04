@@ -1,4 +1,5 @@
 main {
+  position: relative;
   text-align: center;
   padding: 1rem 2rem;
 }
@@ -51,4 +52,34 @@ main button:focus {
   color: rgb(1, 156, 143);
   background-color: whitesmoke;
   border: 2px solid rgb(1, 156, 143);
+}
+
+main img {
+  position: absolute;
+  z-index: -100;
+
+  max-width: min(20vw, 200px);
+}
+main img:first-child {
+  top: 30%;
+  left: -10%;
+  transform: rotate(20deg);
+}
+
+main img:nth-child(2) {
+  bottom: 15%;
+  right: 2.5%;
+  transform: rotate(20deg);
+}
+
+main img:nth-child(3) {
+  top: 10%;
+  right: -8%;
+  transform: rotate(-130deg);
+}
+
+main img:nth-child(4) {
+  bottom: 5%;
+  left: 20%;
+  transform: rotate(-10deg);
 }

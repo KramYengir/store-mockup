@@ -30,15 +30,7 @@ const CartItem = ({ product }) => {
   };
 
   const formattedPrice = () => {
-    console.log("Before formatting:", product.price);
-    const priceAsNumber =
-      typeof product.price === "number"
-        ? product.price
-        : parseFloat(product.price);
-    console.log("After parsing:", priceAsNumber);
-    const formatted = Number(priceAsNumber.toFixed(2));
-    console.log("Formatted price:", formatted);
-    return formatted;
+    return Number(product.price.toFixed(2));
   };
 
   return (

@@ -1,10 +1,35 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/home.css";
+import { ProductContext } from "../components/ProductContext";
+import { useContext } from "react";
 
 const Home = () => {
   const navigate = useNavigate();
+  const { products, loading, error } = useContext(ProductContext);
+  console.log(products);
+
   return (
     <main>
+      {loading ? (
+        "Loading"
+      ) : (
+        <img src={products[2].image} alt={products[2].title} />
+      )}
+      {loading ? (
+        "Loading"
+      ) : (
+        <img src={products[5].image} alt={products[5].title} />
+      )}
+      {loading ? (
+        "Loading"
+      ) : (
+        <img src={products[15].image} alt={products[15].title} />
+      )}
+      {loading ? (
+        "Loading"
+      ) : (
+        <img src={products[12].image} alt={products[12].title} />
+      )}
       <div className="title">
         <h1>Why didn&apos;t the skeleton go to the dance?</h1>
         <h2>Because he had no body to go with :(</h2>
